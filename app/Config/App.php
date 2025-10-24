@@ -159,29 +159,39 @@ class App extends BaseConfig
      */
     public bool $forceGlobalSecureRequests = false;
 
+    /**
+     * --------------------------------------------------------------------------
+     * Content Security Policy
+     * --------------------------------------------------------------------------
+     *
+     * Enables the Response's Content Secure Policy to restrict the sources that
+     * can be used for images, scripts, CSS files, audio, video, etc.
+     */
+    public bool $CSPEnabled = false;
+
     // CONFIG: Azure OpenAI (no almacenar claves aquí)
     // - Guarde los valores sensibles en .env (local) y en App Settings de Azure (producción).
     // - Variables de entorno esperadas:
     //     AZURE_OPENAI_ENDPOINT    => https://<your-resource>.openai.azure.com
     //     AZURE_OPENAI_API_KEY     => <your-api-key>
     //     AZURE_OPENAI_DEPLOYMENT  => <deployment-name> (el nombre que creó en Azure)
-    public bool   $aiEnabled                    = true;
-    public string $aiProvider                   = 'azure_openai';
-    public string $azureOpenAIEndpointEnv       = 'AZURE_OPENAI_ENDPOINT';
-    public string $azureOpenAIApiKeyEnv         = 'AZURE_OPENAI_API_KEY';
-    public string $azureOpenAIDeploymentEnv     = 'AZURE_OPENAI_DEPLOYMENT';
-    public string $azureOpenAIAPIVersion        = '2023-05-15'; // ajustar según la versión usada
-    public int    $azureOpenAIRequestTimeout    = 30;           // timeout en segundos
+    /* public bool   $aiEnabled                    = true; */
+    /* public string $aiProvider                   = 'azure_openai'; */
+    /* public string $azureOpenAIEndpointEnv       = 'AZURE_OPENAI_ENDPOINT'; */
+    /* public string $azureOpenAIApiKeyEnv         = 'AZURE_OPENAI_API_KEY'; */
+    /* public string $azureOpenAIDeploymentEnv     = 'AZURE_OPENAI_DEPLOYMENT'; */
+    /* public string $azureOpenAIAPIVersion        = '2023-05-15'; // ajustar según la versión usada */
+    /* public int    $azureOpenAIRequestTimeout    = 30;           // timeout en segundos */
 
-    // Nuevas propiedades informativas para despliegue en Azure
-    // Ajusta estos valores antes de desplegar.
-    public bool   $azureDeploy                  = true;                          // indicador informativo
-    public string $azureDeploymentMethod        = 'app_service';                 // 'app_service' 
-    public string $azureAppServiceName          = 'proyecto1';                   // nombre App Service 
-    public string $azureAppServiceDomain        = 'proyecto1.azurewebsites.net'; // dominio por defecto 
-    public bool   $azureForceHttps              = true;                          // se recomienda true en producción
-    public string $dockerfilePath               = 'Dockerfile';                  // ruta relativa si usas Docker
-    public string $githubActionsWorkflow        = '.github/workflows/deploy-azure.yml'; // ruta sugerida para workflow CI/CD
+    /* // Nuevas propiedades informativas para despliegue en Azure */
+    /* // Ajusta estos valores antes de desplegar. */
+    /* public bool   $azureDeploy                  = true;                          // indicador informativo */
+    /* public string $azureDeploymentMethod        = 'app_service';                 // 'app_service'  */
+    /* public string $azureAppServiceName          = 'proyecto1';                   // nombre App Service  */
+    /* public string $azureAppServiceDomain        = 'proyecto1.azurewebsites.net'; // dominio por defecto  */
+    /* public bool   $azureForceHttps              = true;                          // se recomienda true en producción */
+    /* public string $dockerfilePath               = 'Dockerfile';                  // ruta relativa si usas Docker */
+    /* public string $githubActionsWorkflow        = '.github/workflows/deploy-azure.yml'; // ruta sugerida para workflow  */
 
-    // Nota: nunca commits claves ni endpoints sensibles. Si una clave fue expuesta, rótala en Azure inmediatamente.
+    /* // Nota: nunca commits claves ni endpoints sensibles. Si una clave fue expuesta, rótala en Azure inmediatamente. */
 }

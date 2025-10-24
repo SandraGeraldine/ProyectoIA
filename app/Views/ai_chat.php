@@ -5,10 +5,9 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1" />
 	<title>Preguntas - IA</title>
 	<style>
-		/* Estilo básico y centrado */
-		body { font-family: Arial, sans-serif; background:#f4f6f8; margin:0; padding:0; display:flex; align-items:center; justify-content:center; min-height:100vh; }
-		.container { background:white; width:100%; max-width:720px; border-radius:8px; box-shadow:0 6px 20px rgba(0,0,0,0.08); padding:20px; }
-		h1 { margin:0 0 12px; font-size:20px; }
+		body { font-family: Arial, sans-serif; background:#f4f6f8; margin:0; padding:20px; display:flex; align-items:flex-start; justify-content:center; min-height:100vh; }
+		.container { background:white; width:100%; max-width:760px; border-radius:8px; box-shadow:0 6px 20px rgba(0,0,0,0.08); padding:20px; }
+		h1 { margin:0 0 12px; font-size:22px; }
 		textarea { width:100%; min-height:120px; resize:vertical; padding:10px; font-size:14px; border:1px solid #d1d5db; border-radius:4px; }
 		.controls { display:flex; gap:10px; margin-top:10px; align-items:center; }
 		button { background:#2563eb; color:white; border:none; padding:10px 14px; border-radius:6px; cursor:pointer; }
