@@ -159,44 +159,29 @@ class App extends BaseConfig
      */
     public bool $forceGlobalSecureRequests = false;
 
-    /**
-     * --------------------------------------------------------------------------
-     * Reverse Proxy IPs
-     * --------------------------------------------------------------------------
-     *
-     * If your server is behind a reverse proxy, you must whitelist the proxy
-     * IP addresses from which CodeIgniter should trust headers such as
-     * X-Forwarded-For or Client-IP in order to properly identify
-     * the visitor's IP address.
-     *
-     * You need to set a proxy IP address or IP address with subnets and
-     * the HTTP header for the client IP address.
-     *
-     * Here are some examples:
-     *     [
-     *         '10.0.1.200'     => 'X-Forwarded-For',
-     *         '192.168.5.0/24' => 'X-Real-IP',
-     *     ]
-     *
-     * @var array<string, string>
-     */
-    public array $proxyIPs = [];
+    // CONFIG: Azure OpenAI (no almacenar claves aquí)
+    // - Guarde los valores sensibles en .env (local) y en App Settings de Azure (producción).
+    // - Variables de entorno esperadas:
+    //     AZURE_OPENAI_ENDPOINT    => https://<your-resource>.openai.azure.com
+    //     AZURE_OPENAI_API_KEY     => <your-api-key>
+    //     AZURE_OPENAI_DEPLOYMENT  => <deployment-name> (el nombre que creó en Azure)
+    public bool   $aiEnabled                    = true;
+    public string $aiProvider                   = 'azure_openai';
+    public string $azureOpenAIEndpointEnv       = 'AZURE_OPENAI_ENDPOINT';
+    public string $azureOpenAIApiKeyEnv         = 'AZURE_OPENAI_API_KEY';
+    public string $azureOpenAIDeploymentEnv     = 'AZURE_OPENAI_DEPLOYMENT';
+    public string $azureOpenAIAPIVersion        = '2023-05-15'; // ajustar según la versión usada
+    public int    $azureOpenAIRequestTimeout    = 30;           // timeout en segundos
 
-    /**
-     * --------------------------------------------------------------------------
-     * Content Security Policy
-     * --------------------------------------------------------------------------
-     *
-     * Enables the Response's Content Secure Policy to restrict the sources that
-     * can be used for images, scripts, CSS files, audio, video, etc. If enabled,
-     * the Response object will populate default values for the policy from the
-     * `ContentSecurityPolicy.php` file. Controllers can always add to those
-     * restrictions at run time.
-     *
-     * For a better understanding of CSP, see these documents:
-     *
-     * @see http://www.html5rocks.com/en/tutorials/security/content-security-policy/
-     * @see http://www.w3.org/TR/CSP/
-     */
-    public bool $CSPEnabled = false;
+    // Nuevas propiedades informativas para despliegue en Azure
+    // Ajusta estos valores antes de desplegar.
+    public bool   $azureDeploy                  = true;                          // indicador informativo
+    public string $azureDeploymentMethod        = 'app_service';                 // 'app_service' 
+    public string $azureAppServiceName          = 'proyecto1';                   // nombre App Service 
+    public string $azureAppServiceDomain        = 'proyecto1.azurewebsites.net'; // dominio por defecto 
+    public bool   $azureForceHttps              = true;                          // se recomienda true en producción
+    public string $dockerfilePath               = 'Dockerfile';                  // ruta relativa si usas Docker
+    public string $githubActionsWorkflow        = '.github/workflows/deploy-azure.yml'; // ruta sugerida para workflow CI/CD
+
+    // Nota: nunca commits claves ni endpoints sensibles. Si una clave fue expuesta, rótala en Azure inmediatamente.
 }
